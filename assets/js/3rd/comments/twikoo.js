@@ -5,10 +5,9 @@ NexT.plugins.comments.twikoo = function () {
         || !NexT.CONFIG.twikoo
         || !NexT.utils.checkDOMExist(element)) return;
 
-    const version = NexT.CONFIG.twikoo.version ? NexT.CONFIG.twikoo.version : '1.6.41';
-    const twikoo_js = NexT.CONFIG.twikoo.js.replace('<version>', version);
+    const twikoo_js = NexT.utils.getCDNResource(NexT.CONFIG.twikoo.js);
 
-    NexT.utils.lazyLoadComponent(element, function() {
+    NexT.utils.lazyLoadComponent("#twikoo", function() {
         NexT.utils.getScript(twikoo_js, function(){
             twikoo.init({
                 envId: NexT.CONFIG.twikoo.cfg.envid,
