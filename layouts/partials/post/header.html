@@ -22,7 +22,8 @@
   {{ end }}
   {{ end }}
   {{ if $.IsHome }} </h2> {{ else }} </h1> {{ end }}
-{{ $isComment := and (.Scratch.Get "isComment") .Site.Params.postMeta.comments.enable }}
+{{ $isComment := .Params.comment.enable | default .Site.Params.comments.enable }}
+{{ $isComment = and $isComment .Site.Params.postMeta.comments.enable }}
 <div class="post-meta-container">
   <div class="post-meta-items">
     {{ partial "post/header_meta/created_date.html" . }}
