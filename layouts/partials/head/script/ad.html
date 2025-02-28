@@ -1,0 +1,6 @@
+{{ if isset .Site.Params.ad "adsense" }}
+  {{ partial "_thirdparty/ad/adsense.html" . }}
+{{ end }}
+{{ if isset .Site.Params.ad "baidu" }}
+  {{ partial "_thirdparty/ad/baidu.html" . }}  
+{{ end }}
